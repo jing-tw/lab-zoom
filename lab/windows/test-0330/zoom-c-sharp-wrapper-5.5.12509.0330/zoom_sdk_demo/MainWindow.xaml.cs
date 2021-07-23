@@ -69,8 +69,8 @@ namespace zoom_sdk_demo
             Console.WriteLine("generate websdk token!");
 
             /*
-            string apiKey = "STxJ01JLrdJfX2FEag7jYfyt3iGtJWELKyB7";
-            string apiSecret = "WeAnA3XqRTC56p7Jhrby8PQF9sMCqokCl0cd";
+            string apiKey = "YOUR_SDK_KEY";
+            string apiSecret = "YOUR_SDK_SECRET";
             string meetingNumber = "860 437 6369";
             String ts = (ToTimestamp(DateTime.UtcNow.ToUniversalTime()) - 30000).ToString();
             string role = "0";
@@ -80,16 +80,9 @@ namespace zoom_sdk_demo
             param.jwt_token = token;
             */
 
-
+            /*
             string apiKey = "YOUR_SDK_KEY";
             string apiSecret = "YOUR_SDK_SECRET";
-            ZoomToken myToken = new ZoomToken(apiKey, apiSecret);
-            param.jwt_token = myToken.Token;
-            
-
-            /*
-            string apiKey = "STxJ01JLrdJfX2FEag7jYfyt3iGtJWELKyB7";
-            string apiSecret = "WeAnA3XqRTC56p7Jhrby8PQF9sMCqokCl0cd";
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
             var now = DateTime.UtcNow;
             // var apiSecret = "<your API secret here>";
@@ -107,6 +100,13 @@ namespace zoom_sdk_demo
             Console.WriteLine("tokenString = " + tokenString);
             param.jwt_token = tokenString;
             */
+
+            // work
+            string apiKey = "YOUR_SDK_KEY";         // get it from Zoom marketplace. https://marketplace.zoom.us/
+            string apiSecret = "YOUR_SDK_SECRET";   // get it from Zoom marketplace. https://marketplace.zoom.us/
+            ZoomToken myToken = new ZoomToken(apiKey, apiSecret);
+            param.jwt_token = myToken.Token;
+           
 
             ZOOM_SDK_DOTNET_WRAP.CZoomSDKeDotNetWrap.Instance.GetAuthServiceWrap().SDKAuth(param);
             Hide();
